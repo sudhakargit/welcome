@@ -17,7 +17,9 @@ jobs:
         distribution: 'temurin' # See 'Supported distributions' for available options
         java-version: '21'
     - name: build jar
-      run: ./mvnw clean package -DskipTests
+      run: |
+        chmod +x ./mvnw
+        ./mvnw clean package -DskipTests
     - name: dockerhub login
       uses: docker/login-action@v3
       with: 
